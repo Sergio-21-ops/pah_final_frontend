@@ -1,0 +1,72 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+.card {
+  background-color: #ffc062;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  width: 200px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.botones-disco{
+ width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.navegacionUsuario{
+   padding: 2rem;
+}
+.navBar{
+  margin: 1rem;
+  color: antiquewhite;
+     
+}
+.div_filtros{
+  margin: 1rem;
+}
+.filtros{
+  margin: 1rem;
+}
+.select_orden{
+  margin: 1em;
+    border-radius: 1rem;
+    padding: 1em;
+    text-align: center;
+}
+.login{
+text-align:right;
+}
+
+ul{
+padding: 0rem;  
+}
+
+.enviar{
+  width: 100%;
+}
+
+li{
+      list-style: none;
+    padding: 0rem;
+}
+
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

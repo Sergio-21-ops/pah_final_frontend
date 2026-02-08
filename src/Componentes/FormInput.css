@@ -1,0 +1,46 @@
+.formInput {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.select_banda{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  width:100%
+}
+.option_banda{
+text-align:center;
+}
+
+label {
+  font-size: 14px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input:invalid[focused="true"] {
+  border: 2px solid red;
+}
+
+input:valid[focused="true"] {
+  border: 2px solid green;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  display: none;
+  margin-top: 5px;
+}
+
+input:invalid[focused="true"] ~ .error-message {
+  display: block;
+}
