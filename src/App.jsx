@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { Route, Routes,Link } from 'react-router-dom'
+import axios from "axios";
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 import './App.css'
 
