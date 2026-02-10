@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { Route, Routes,Link } from 'react-router-dom'
 import axios from "axios";
 axios.defaults.baseURL = import.meta.env.VITE_API_URL || "http://localhost:3000";
-console.log("API URL:", import.meta.env.VITE_API_URL);
 
 import './App.css'
 
@@ -81,5 +80,6 @@ function App() {
     </>
   );
 }
+console.log("API DESDE VERCEL 👉", import.meta.env.VITE_API_URL);
 
 export default App;
