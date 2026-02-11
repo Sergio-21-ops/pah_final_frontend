@@ -4,7 +4,7 @@ console.log("API 👉", import.meta.env.VITE_API_URL);
 import React, { useContext } from 'react';
 import { Route, Routes,Link } from 'react-router-dom'
 import axios from "axios";
-axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+axios.defaults.baseURL = `${import.meta.env.VITE_API_URL}/api`;
 
 
 import './App.css'
