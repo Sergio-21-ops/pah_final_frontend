@@ -45,7 +45,7 @@ const { usuario } = useContext(AuthContext);
         const handleBorrarDisco = async (id) =>{
   if(window.confirm('Seguro de querer borrarlo?')){
     try{
-         await axios.delete(`${import.meta.env.VITE_API_URL}/discos/${id}`)
+await axios.delete(`/discos/${id}`)
       fetchDiscos()
     } catch(err){
         console.error(err)
@@ -66,10 +66,7 @@ const { usuario } = useContext(AuthContext);
           setcargando(true)
       setError(null)
                 try{
-                  const res =  await axios.get(`${import.meta.env.VITE_API_URL}/discos`,{
-          params:{
-          orden
-          }
+                  const res =  await axios.get(`/discos`, { params:{ orden } })
           })
                  setDiscos(res.data)
                   setcargando(false)
@@ -83,7 +80,7 @@ const { usuario } = useContext(AuthContext);
 
          const fetchDetalleDisco = async (id) =>{
                 try{
-                  const res =  await axios.get(`${import.meta.env.VITE_API_URL}/discos/${id}`)
+                  const res =  await axios.get(`/discos/${id}`)
                  setDiscodetalle(res.data)
             } catch(err){
                 console.error("error al obtener detalle",err)
@@ -99,7 +96,7 @@ const { usuario } = useContext(AuthContext);
 
               const fetchBandas = async () =>{
                             try{
-                              const res =  await axios.get(`${import.meta.env.VITE_API_URL}/discos`,)
+                              const res =  await axios.get(`/discos`)
                              setBandas(res.data)
                         } catch(err){
                             console.error(err)
@@ -141,9 +138,7 @@ const { usuario } = useContext(AuthContext);
 
     const fetchSugerencias = async (searchTerm) =>{
     try{
-          const res =  await axios.get(`${import.meta.env.VITE_API_URL}/discos/buscar`,{
-            params:{nombre:searchTerm}
-          });
+          const res =  await axios.get(`/discos/buscar`, { params:{ nombre:searchTerm } })
          setSugerencias(res.data)
     } catch(err){
         console.error(err)
@@ -293,5 +288,6 @@ usuario && (
 
 
 export default Discos
+
 
 
