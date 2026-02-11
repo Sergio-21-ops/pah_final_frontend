@@ -56,7 +56,7 @@ const handleOnChange = (e) =>{
     
     e.preventDefault()
     
-   await axios.post(`${import.meta.env.VITE_API_URL}//usuarios/ingresar`, userData)
+   await axios.post(`${import.meta.env.VITE_API_URL}/usuarios/ingresar`, userData)
     .then((res)=>{
       
       Cookies.set('jwToken',res.data.jwToken,{expires:3})
@@ -97,5 +97,6 @@ const handleOnChange = (e) =>{
 };
 
 export default Login;
+
 
 
