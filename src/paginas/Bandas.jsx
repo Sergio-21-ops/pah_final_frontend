@@ -93,7 +93,7 @@ const handleOnChange = (e) =>{
                 }
         
                 try{
-                        await axios.post("${import.meta.env.VITE_API_URL}/bandas",nuevaBanda)
+await axios.post(`${import.meta.env.VITE_API_URL}/bandas`, nuevaBanda)
                         
                         
                         fetchBandas()
@@ -211,3 +211,4 @@ usuario && (
 
 
 export default Bandas
+
