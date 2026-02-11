@@ -61,7 +61,7 @@ const handleOnChange = (e) =>{
 }
   const fetchBandas = async () =>{
                 try{
-                  const res =  await axios.get("http://localhost:3000/bandas",)
+                  const res =  await axios.get(`${import.meta.env.VITE_API_URL}/bandas`,)
                  setBandas(res.data)
             } catch(err){
                 console.error(err)
@@ -71,7 +71,7 @@ const handleOnChange = (e) =>{
 
    const fetchDetalleBanda = async (id) =>{
                 try{
-                  const res =  await axios.get(`http://localhost:3000/bandas/${id}`)
+                  const res =  await axios.get(`${import.meta.env.VITE_API_URL}/bandas/${id}`)
                  setBandadetalle(res.data)
             } catch(err){
                 console.error("error al obtener detalle",err)
@@ -93,7 +93,7 @@ const handleOnChange = (e) =>{
                 }
         
                 try{
-                        await axios.post("http://localhost:3000/bandas",nuevaBanda)
+                        await axios.post("${import.meta.env.VITE_API_URL}/bandas",nuevaBanda)
                         
                         
                         fetchBandas()
@@ -109,7 +109,7 @@ const handleOnChange = (e) =>{
  const handleBorrarBanda = async (id) =>{
   if(window.confirm('Seguro de querer borrarlo?')){
     try{
-         await axios.delete(`http://localhost:3000/bandas/${id}`)
+         await axios.delete(`${import.meta.env.VITE_API_URL}/bandas/${id}`)
       fetchBandas()
     } catch(err){
         console.error(err)
@@ -208,5 +208,6 @@ usuario && (
     </div>
   )
 }
+
 
 export default Bandas
