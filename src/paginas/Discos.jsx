@@ -45,7 +45,7 @@ const { usuario } = useContext(AuthContext);
         const handleBorrarDisco = async (id) =>{
   if(window.confirm('Seguro de querer borrarlo?')){
     try{
-         await axios.delete(`http://localhost:3000/discos/${id}`)
+         await axios.delete(``${import.meta.env.VITE_API_URL}/discos/${id}``)
       fetchDiscos()
     } catch(err){
         console.error(err)
@@ -66,7 +66,7 @@ const { usuario } = useContext(AuthContext);
           setcargando(true)
       setError(null)
                 try{
-                  const res =  await axios.get("http://localhost:3000/discos",{
+                  const res =  await axios.get("${import.meta.env.VITE_API_URL}/discos",{
           params:{
           orden
           }
@@ -83,7 +83,7 @@ const { usuario } = useContext(AuthContext);
 
          const fetchDetalleDisco = async (id) =>{
                 try{
-                  const res =  await axios.get(`http://localhost:3000/discos/${id}`)
+                  const res =  await axios.get(`${import.meta.env.VITE_API_URL}/discos/${id}`)
                  setDiscodetalle(res.data)
             } catch(err){
                 console.error("error al obtener detalle",err)
@@ -99,7 +99,7 @@ const { usuario } = useContext(AuthContext);
 
               const fetchBandas = async () =>{
                             try{
-                              const res =  await axios.get("http://localhost:3000/bandas",)
+                              const res =  await axios.get(`${import.meta.env.VITE_API_URL}/discos`,)
                              setBandas(res.data)
                         } catch(err){
                             console.error(err)
@@ -120,7 +120,7 @@ const { usuario } = useContext(AuthContext);
             
             const handleSearch = async (searchTerm) => {
                  try{
-                      const res =  await axios.get("http://localhost:3000/discos/buscar",{
+                      const res =  await axios.get(`${import.meta.env.VITE_API_URL}/discos/buscar`,{
                         params:{nombre:searchTerm}
                       })
                      setDiscos(res.data)
@@ -141,7 +141,7 @@ const { usuario } = useContext(AuthContext);
 
     const fetchSugerencias = async (searchTerm) =>{
     try{
-          const res =  await axios.get("http://localhost:3000/discos/buscar",{
+          const res =  await axios.get(`${import.meta.env.VITE_API_URL}/discos/buscar`,{
             params:{nombre:searchTerm}
           });
          setSugerencias(res.data)
@@ -288,5 +288,6 @@ usuario && (
     </div>
   )
 }
+
 
 export default Discos
