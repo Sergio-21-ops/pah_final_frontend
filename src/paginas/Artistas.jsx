@@ -104,35 +104,33 @@ const res = await axios.get("/artistas")
   },[])
 
 
-  const handleSubmit = async (e) =>{
-                e.preventDefault();
-            
-                const nuevoArtista = {
-                   nombre: values.nombre,
-                   apellido: values.apellido,
-                   mini_biografia: values.mini_biografia,
-                   edad:Number(values.edad),
-                  instrumentos: values.instrumentos.split(',').map(i => i.trim()),
-                }
-        
-                try{
-                  console.log("Payload enviado:", nuevoArtista);
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-const res = await axios.get("/artistas") 
- fetchArtistas()
-                        
-                  setValues({
+  const nuevoArtista = {
+    nombre: values.nombre,
+    apellido: values.apellido,
+    mini_biografia: values.mini_biografia,
+    edad: Number(values.edad),
+    instrumentos: values.instrumentos.split(',').map(i => i.trim()),
+  }
+
+  try {
+    await axios.post("/artistas", nuevoArtista)
+    fetchArtistas()
+
+    setValues({
       nombre: '',
       apellido: '',
       mini_biografia: '',
       edad: '',
       instrumentos: ''
-    });   
-            
-                } catch(err){
-                    console.error(err)
-                }
-    }
+    });
+
+  } catch(err){
+    console.error(err)
+  }
+}
 
 
     /*
@@ -221,4 +219,5 @@ const handleSearchChange = async (e) => {
 }
 
 export default Artistas 
+
 
