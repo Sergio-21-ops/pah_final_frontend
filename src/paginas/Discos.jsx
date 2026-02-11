@@ -155,7 +155,7 @@ const handleSearchChange = async (e) => {
 
 
 if (cargando) return <p>Cargando...</p>
-if (error) return <p>Error:{error}</p>
+if (error) return <p>{error.response?.data?.message || "Error al cargar discos"}</p>
   return (
     <div>
         <h1>Discos</h1>
@@ -288,6 +288,7 @@ usuario && (
 
 
 export default Discos
+
 
 
 
