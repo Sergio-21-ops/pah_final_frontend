@@ -92,7 +92,7 @@ const handleOnChange = (e) =>{
 
   const fetchArtistas = async () =>{
                 try{
-                  const res =  await axios.get("http://localhost:3000/artistas",)
+                  const res =  await axios.get(`${import.meta.env.VITE_API_URL}/artistas`",)
                  setArtistas(res.data)
             } catch(err){
                 console.error(err)
@@ -118,7 +118,7 @@ const handleOnChange = (e) =>{
                 try{
                   console.log("Payload enviado:", nuevoArtista);
 
-                        await axios.post("http://localhost:3000/artistas",nuevoArtista)
+                        await axios.post(`${import.meta.env.VITE_API_URL}/artista`,nuevoArtista)
                         fetchArtistas()
                         
                   setValues({
