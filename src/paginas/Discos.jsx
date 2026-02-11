@@ -62,20 +62,20 @@ await axios.delete(`/discos/${id}`)
 
 
 
-        const fetchDiscos = async () =>{
-          setcargando(true)
-      setError(null)
-                try{
-                  const res =  await axios.get(`/discos`, { params:{ orden } })
-          })
-                 setDiscos(res.data)
-                  setcargando(false)
-            } catch(err){
-                console.error(err)
-                 setError(err)
-        setcargando(false)
-            }
-            } 
+       const fetchDiscos = async () => {
+  setcargando(true)
+  setError(null)
+
+  try {
+    const res = await axios.get(`/discos`, { params: { orden } })
+    setDiscos(res.data)
+  } catch (err) {
+    console.error(err)
+    setError(err)
+  } finally {
+    setcargando(false)
+  }
+}
 
 
          const fetchDetalleDisco = async (id) =>{
@@ -94,14 +94,14 @@ await axios.delete(`/discos/${id}`)
 
 
 
-              const fetchBandas = async () =>{
-                            try{
-                              const res =  await axios.get(`/discos`)
-                             setBandas(res.data)
-                        } catch(err){
-                            console.error(err)
-                        }
-              } 
+             const fetchBandas = async () =>{
+  try {
+    const res = await axios.get(`/bandas`)
+    setBandas(res.data)
+  } catch(err){
+    console.error(err)
+  }
+}
                     
               useEffect(()=>{
                     fetchBandas()
@@ -117,9 +117,9 @@ await axios.delete(`/discos/${id}`)
             
             const handleSearch = async (searchTerm) => {
                  try{
-                      const res =  await axios.get(`${import.meta.env.VITE_API_URL}/discos/buscar`,{
-                        params:{nombre:searchTerm}
-                      })
+                      const res =  await axios.get(`/discos/buscar`, {
+  params: { nombre: searchTerm }
+})
                      setDiscos(res.data)
                      setSugerencias([])
                 } catch(err){
@@ -288,6 +288,7 @@ usuario && (
 
 
 export default Discos
+
 
 
 
