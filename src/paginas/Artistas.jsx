@@ -92,8 +92,8 @@ const handleOnChange = (e) =>{
 
   const fetchArtistas = async () =>{
                 try{
-                  const res =  await axios.get(`${import.meta.env.VITE_API_URL}/artistas`",)
-                 setArtistas(res.data)
+const res = await axios.get("/artistas")             
+ setArtistas(res.data)
             } catch(err){
                 console.error(err)
             }
@@ -118,8 +118,8 @@ const handleOnChange = (e) =>{
                 try{
                   console.log("Payload enviado:", nuevoArtista);
 
-                        await axios.post(`${import.meta.env.VITE_API_URL}/artista`,nuevoArtista)
-                        fetchArtistas()
+const res = await axios.get("/artistas") 
+ fetchArtistas()
                         
                   setValues({
       nombre: '',
@@ -221,3 +221,4 @@ const handleSearchChange = async (e) => {
 }
 
 export default Artistas 
+
