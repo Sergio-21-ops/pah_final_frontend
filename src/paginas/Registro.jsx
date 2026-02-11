@@ -83,7 +83,7 @@ const handleOnChange = (e) =>{
   const handleRegistro = async (e) =>{
 
     e.preventDefault()
-    await axios.post(`${import.meta.env.VITE_API_URL}//usuarios`, userData)
+    await axios.post(`${import.meta.env.VITE_API_URL}/usuarios`, userData)
     .then((res)=>{
 
       navigate ('/login')
@@ -120,4 +120,5 @@ const handleOnChange = (e) =>{
 };
 
 export default Registro;
+
 
