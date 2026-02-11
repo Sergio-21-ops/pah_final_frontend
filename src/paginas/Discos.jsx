@@ -45,7 +45,7 @@ const { usuario } = useContext(AuthContext);
         const handleBorrarDisco = async (id) =>{
   if(window.confirm('Seguro de querer borrarlo?')){
     try{
-         await axios.delete(``${import.meta.env.VITE_API_URL}/discos/${id}``)
+         await axios.delete(`${import.meta.env.VITE_API_URL}/discos/${id}`)
       fetchDiscos()
     } catch(err){
         console.error(err)
@@ -66,7 +66,7 @@ const { usuario } = useContext(AuthContext);
           setcargando(true)
       setError(null)
                 try{
-                  const res =  await axios.get("${import.meta.env.VITE_API_URL}/discos",{
+                  const res =  await axios.get(`${import.meta.env.VITE_API_URL}/discos`,{
           params:{
           orden
           }
@@ -291,3 +291,4 @@ usuario && (
 
 
 export default Discos
+
