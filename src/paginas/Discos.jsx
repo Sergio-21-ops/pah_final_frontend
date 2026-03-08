@@ -197,7 +197,7 @@ usuario && (
     <p><strong>Género:</strong> {discoDetalle.genero}</p>
     <p><strong>Banda:</strong> {discoDetalle.banda?.nombre} </p>
 <img 
-  src={`${import.meta.env.VITE_API_URL}${discoDetalle.imagenUrl}`} 
+  src={`${import.meta.env.VITE_API_URL}/${discoDetalle.imagenUrl}`} 
   alt={discoDetalle.nombre} 
 />
     <button onClick={() => setDiscodetalle(null)}>Cerrar detalle</button>
@@ -288,6 +288,7 @@ usuario && (
 
 
 export default Discos
+
 
 
 
