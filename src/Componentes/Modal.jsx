@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 //import {discosValidacion} from "../../../backend/validacion/validacion.js"
+const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 import FormInput from './FormInput'
 
@@ -74,7 +75,7 @@ const handleOnChange = (e) =>{
     })
 
     setImagenPr(
-      disco.imagenUrl ? `http://localhost:3000${disco.imagenUrl}` : null
+      disco.imagenUrl ? `${baseUrl}${disco.imagenUrl}` : null
     );
   }
 },[disco])
@@ -91,12 +92,12 @@ const handleOnChange = (e) =>{
                 }
 
       if (disco) {
-        await axios.put(`http://localhost:3000/discos/${disco._id}`,nuevoDisco,{
+        await axios.put(`${baseUrl}/discos/${disco._id}`,nuevoDisco,{
                     headers : {'Content-Type' : 'multipart/form-data'}}
 
         )
       }else{
-        await axios.post("http://localhost:3000/discos",nuevoDisco,
+        await axios.post(`${baseUrl}/discos`,nuevoDisco,
                    {
                     headers : {'Content-Type' : 'multipart/form-data'}}
 
