@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 //import {discosValidacion} from "../../../backend/validacion/validacion.js"
+const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 import FormInput from './FormInput'
 
@@ -81,9 +82,9 @@ const handleOnChange = (e) =>{
                 }
 
       if (banda) {
-        await axios.put(`http://localhost:3000/bandas/${banda._id}`,nuevaBanda)
+        await axios.put(`${baseUrl}/bandas/${banda._id}`,nuevaBanda)
       }else{
-        await axios.post("http://localhost:3000/bandas",nuevaBanda)
+        await axios.post(`${baseUrl}/bandas`,nuevaBanda)
       }
       
 
