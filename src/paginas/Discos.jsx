@@ -3,7 +3,7 @@ import axios from 'axios'
 import useDebounce from '../hooks/useDebounce'
 import Modal from '../Componentes/Modal'
 import { AuthContext } from "../contexto/AuthContexto";
-
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000'; 
 
 const Discos = () => {
 
@@ -197,7 +197,7 @@ usuario && (
     <p><strong>Género:</strong> {discoDetalle.genero}</p>
     <p><strong>Banda:</strong> {discoDetalle.banda?.nombre} </p>
 <img 
-  src={`${import.meta.env.VITE_API_URL}/${discoDetalle.imagenUrl}`} 
+  src={`${baseURL}${discoDetalle.imagenUrl}`} 
   alt={discoDetalle.nombre} 
 />
     <button onClick={() => setDiscodetalle(null)}>Cerrar detalle</button>
